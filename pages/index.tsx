@@ -19,6 +19,9 @@ const Home: NextPage = () => {
             <p>Full moon rising by <a className="underline" href="https://unsplash.com/photos/gmejHJ6k-VY">Maciek Sulkowski</a></p>
             <p>City at night by <a className="underline" href="https://unsplash.com/photos/jEeksuy9SMk">Itadaki</a></p>
           </div>
+          <h2 className="pt-4">
+            <a className="font-bold underline text-lg" href="https://github.com/johnpolacek/image-crossfade">github.com/johnpolacek/image-crossfade</a>
+          </h2>
         </div>
         <div className="relative lg:-top-[25vh]">
           <BackgroundImage />
