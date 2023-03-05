@@ -1,27 +1,23 @@
-# Next.js + Tailwind CSS Example
+# Image Crossfade Effect with Next.js Image + Tailwind
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is a React functional component called `ImageCrossFade` that displays an image with a cross-fade effect.
 
-## Deploy your own
+The component takes in three props:
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- *imgUrl:* a string representing the URL of the image to be displayed.
+- *width:* a number representing the width of the image, default value is 1728.
+- *height:* a number representing the height of the image, default value is 864.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+The component uses the `useState` hook to manage the state of three variables:
 
-## How to use
+- *fadeIn:* a boolean value indicating whether the fade-in effect should be applied to the image.
+- *loaded:* a boolean value indicating whether the image has been loaded.
+- *loadedImage:* a string representing the URL of the loaded image.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+The component uses the `useEffect` hook to update the state of `loaded` and `fadeIn` when the imgUrl prop changes.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+The component uses the [Next.js Image Component](https://nextjs.org/docs/api-reference/next/image) to display the image. The `onLoadingComplete` prop is used to update the `loaded` and `loadedImage` state variables when the image has finished loading.
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+The component also displays a gradient overlay over the image using a div element with absolute positioning.
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Finally, the component uses `React.memo` to optimize performance by memoizing the component and preventing unnecessary re-renders.

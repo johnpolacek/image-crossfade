@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import wait from "waait"
 
-const ImageCrossFade = ({ imgUrl }: { imgUrl: string }) => {
+interface ImageCrossFadeProps {
+  imgUrl: string;
+  width: number;
+  height: number;
+}
+
+const ImageCrossFade = ({ imgUrl, width = 1728, height = 864, }: ImageCrossFadeProps) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false)
   const [loaded, setLoaded] = useState<boolean>(false)
   const [loadedImage, setLoadedImage] = useState<string>(imgUrl)
@@ -39,8 +45,8 @@ const ImageCrossFade = ({ imgUrl }: { imgUrl: string }) => {
           alt=""
           src={loadedImage}
           priority
-          width={1728}
-          height={864}
+          width={width}
+          height={height}
           className={`w-full`}
         />)
       }
