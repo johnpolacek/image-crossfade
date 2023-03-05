@@ -8,7 +8,7 @@ interface ImageCrossFadeProps {
   height: number;
 }
 
-const ImageCrossFade = ({ imgUrl, width = 1728, height = 864, }: ImageCrossFadeProps) => {
+const ImageCrossFade = ({ imgUrl, width, height, }: ImageCrossFadeProps) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false)
   const [loaded, setLoaded] = useState<boolean>(false)
   const [loadedImage, setLoadedImage] = useState<string>(imgUrl)

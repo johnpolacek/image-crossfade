@@ -20,7 +20,7 @@ export default function BackgroundImage() {
 
   return (
     <ImageCrossFade
-      imgUrl={images[image]}
+      imgUrl={images[image]} width={1728} height={864}
     />
   )
 }
