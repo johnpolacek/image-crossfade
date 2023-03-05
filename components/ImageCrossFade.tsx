@@ -19,7 +19,6 @@ const ImageCrossFade = ({ imgUrl }: { imgUrl: string }) => {
           onLoadingComplete={() => {
             setLoaded(true)
             wait(1100).then(() => {
-              console.log("setLoadedImage")
               setLoadedImage(imgUrl)
             })
           }}
@@ -32,18 +31,19 @@ const ImageCrossFade = ({ imgUrl }: { imgUrl: string }) => {
             }`}
         />
       )}
-      <Image
-        onLoadingComplete={() => {
-          setFadeIn(false)
-        }}
-        alt=""
-        src={loadedImage}
-        priority
-        width={1728}
-        height={864}
-        className={`w-full transition-opacity duration-1000 ${fadeIn && !loaded ? "opacity-0" : "opacity-100"
-          }`}
-      />
+      {
+        loadedImage && (<Image
+          onLoadingComplete={() => {
+            setFadeIn(false)
+          }}
+          alt=""
+          src={loadedImage}
+          priority
+          width={1728}
+          height={864}
+          className={`w-full`}
+        />)
+      }
       <div
         className="w-full h-full absolute left-0 bottom-0 z-10"
         style={{
